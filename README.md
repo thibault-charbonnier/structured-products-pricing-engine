@@ -60,9 +60,11 @@ Originally developed as an academic project (Université Paris-Dauphine, Master 
 
   In the Heston model, both the underlying price $S_t$ and its variance $v_t$ are stochastic. Under the risk-neutral measure:
 
-  $dS_t &= r S_t \, dt + \sqrt{v_t}\, S_t \, dW_t^S$
-  $dv_t &= \kappa (\theta - v_t) \, dt + \xi \sqrt{v_t} \, dW_t^v$
-  $d\langle W^S, W^v \rangle_t &= \rho \, dt$
+  $dS_t = r S_t \, dt + \sqrt{v_t}\, S_t \, dW_t^S$
+
+  $dv_t = \kappa (\theta - v_t) \, dt + \xi \sqrt{v_t} \, dW_t^v$
+
+  $d\langle W^S, W^v \rangle_t = \rho \, dt$
 
   where $\kappa$ is the mean-reversion speed, $\theta$ the long-term variance, $\xi$ the vol-of-vol and $\rho$ the correlation between the Brownian motions.
   
