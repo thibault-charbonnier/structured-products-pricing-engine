@@ -42,9 +42,7 @@ Originally developed as an academic project (Université Paris-Dauphine, Master 
 - **SVI (Stochastic Volatility Inspired)**  
   Total variance as a function of log-moneyness $k$:
 
-  $$
-  w(k) = a + b \Big( \rho (k - m) + \sqrt{(k - m)^2 + \sigma^2} \Big)
-  $$
+  $w(k) = a + b \Big( \rho (k - m) + \sqrt{(k - m)^2 + \sigma^2} \Big)$
 
   Used to fit a single maturity smile with an explicit parametric form.
 
@@ -54,11 +52,11 @@ Originally developed as an academic project (Université Paris-Dauphine, Master 
 - **Local volatility (Dupire)**  
   Local variance obtained from call prices $C(K, T)$:
 
-  $$
+  $
   \sigma_{\text{loc}}^2(K, T) =
   \frac{\partial_T C + r K \partial_K C + q C}
        {\tfrac{1}{2} K^2 \partial_{KK} C}
-  $$
+  $
 
   Implemented as an experimental module; highly sensitive to interpolation and numerical differentiation.
 
@@ -66,13 +64,13 @@ Originally developed as an academic project (Université Paris-Dauphine, Master 
 
   In the Heston model, both the underlying price $S_t$ and its variance $v_t$ are stochastic. Under the risk-neutral measure:
 
-  $$
+  $
   \begin{aligned}
   dS_t &= r S_t \, dt + \sqrt{v_t}\, S_t \, dW_t^S, \\
   dv_t &= \kappa (\theta - v_t) \, dt + \xi \sqrt{v_t} \, dW_t^v, \\
   d\langle W^S, W^v \rangle_t &= \rho \, dt.
   \end{aligned}
-  $$
+  $
 
   where $\kappa$ is the mean-reversion speed, $\theta$ the long-term variance, $\xi$ the vol-of-vol and $\rho$ the correlation between the Brownian motions.
   
@@ -86,19 +84,19 @@ Originally developed as an academic project (Université Paris-Dauphine, Master 
 
 - **One-factor process** (e.g. Black–Scholes):  
 
-  $$
+  $
   dS_t = r S_t \, dt + \sigma S_t \, dW_t
-  $$
+  $
 
 - **Two-factor Heston process**:  
 
-  $$
+  $
   \begin{aligned}
   dS_t &= r S_t \, dt + \sqrt{v_t} S_t \, dW_t^S, \\
   dv_t &= \kappa (\theta - v_t) \, dt + \xi \sqrt{v_t} \, dW_t^v, \\
   d\langle W^S, W^v \rangle_t &= \rho \, dt.
   \end{aligned}
-  $$
+  $
 
   Simulated via an Euler scheme with truncation of negative variances.
 
@@ -106,10 +104,10 @@ Originally developed as an academic project (Université Paris-Dauphine, Master 
 
   For a discounted payoff $P(S_T)$ under the risk-neutral measure:
 
-  $$
+  $
   C_0 = \mathbb{E} \big[ e^{-\int_0^T r(t)\, dt} \, P(S_T) \big]
        \approx \frac{1}{N} \sum_{i=1}^N e^{-rT} P(S_T^{(i)}).
-  $$
+  $
 
   The Monte Carlo engine:
   1. Simulates $N$ independent paths using the chosen stochastic process.
