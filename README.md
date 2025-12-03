@@ -2,14 +2,14 @@
 
 Generic **Python pricing engine** for structured products, options, bonds and swaps, built with a modular architecture and exposed through a **Django web interface**.
 
-<p align="center">
-  <img src="doc/figures/SVI_vol.png" alt="SVI Implied Volatility Surface" width="420" />
-  <img src="doc/figures/svi_layer.png" alt="SVI Implied Volatility Smiles" width="420" />
-</p>
-
 Originally developed as an academic project (Université Paris-Dauphine, Master 272 – April 2025), this repository aims to mimic a **professional-grade pricing stack**: market objects, yield curves, volatility surfaces, stochastic processes, discretization-scheme, Monte Carlo engines, and a web UI for interactive pricing. 
 
 > **Disclaimer**: Research / educational code only. Not intended for production use.
+
+> **Example of calibrated volatility surface:**
+> <p align="center">
+>   <img src="doc/figures/SVI_vol.png" alt="SVI Implied Volatility Surface" width="420" />
+> </p>
 
 ---
 
@@ -42,7 +42,9 @@ Originally developed as an academic project (Université Paris-Dauphine, Master 
 - **SVI (Stochastic Volatility Inspired)**  
   Total variance as a function of log-moneyness $k$:
 
-  $$w(k) = a + b \Big( \rho (k - m) + \sqrt{(k - m)^2 + \sigma^2} \Big)$$
+  $$
+  w(k) = a + b \Big( \rho (k - m) + \sqrt{(k - m)^2 + \sigma^2} \Big)
+  $$
 
   Used to fit a single maturity smile with an explicit parametric form.
 
@@ -77,6 +79,8 @@ Originally developed as an academic project (Université Paris-Dauphine, Master 
   In this project, Heston is used as a **stochastic volatility driver** for the Monte Carlo engine: paths for $(S_t, v_t)$ are simulated jointly (Euler scheme with truncation of negative variances), and any payoff compatible with our product abstractions can be priced on top of these paths (vanilla, exotics, structured products).
   
   Calibration of Heston parameters to market implied volatility smiles/surfaces is **not** the primary focus of the project. Instead, it is illustrated separately in a dedicated Jupyter notebook (documentation section), which shows how to fit $(\kappa, \theta, \xi, \rho, v_0)$.
+
+---
 
 ### **Stochastic processes & Monte Carlo**
 
